@@ -7,8 +7,6 @@ const int mod=998244353;
 int n,a[maxn],dp[maxsum],pre[maxsum];
 signed main()
 {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
     cin>>n;
     for(int i=1;i<=n;i++)
     {
