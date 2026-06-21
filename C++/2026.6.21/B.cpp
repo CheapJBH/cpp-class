@@ -2,9 +2,9 @@
 using namespace std;
 #define int long long
 const int maxn=5005;
-const int maxsum=5005;
+const int maxa=5000;
 const int mod=998244353;
-int n,a[maxn],dp[maxsum];
+int n,a[maxn],dp[maxa+5];
 signed main()
 {
     cin>>n;
@@ -14,20 +14,19 @@ signed main()
     }
     sort(a+1,a+n+1);
     dp[0]=1;
-    int ans=0,cur=0;
+    int cnt=1,res=1;
     for(int i=1;i<=n;i++)
     {
-        for(int j=cur;j>a[i];j--)
+        res=res*2%mod;
+        for(int j=0;j<=a[i];j++)
         {
-            ans=(ans+dp[j])%mod;
+            cnt=(cnt+dp[j])%mod;
         }
-        cur+=a[i];
-        if(cur>=maxsum) cur=maxsum-1;
-        for(int j=cur;j>=a[i];j--)
+        for(int j=maxa;j>=a[i];j--)
         {
             dp[j]=(dp[j]+dp[j-a[i]])%mod;
         }
     }
-    cout<<ans<<endl;
+    cout<<(res-cnt+mod)%mod<<endl;
     return 0;
 }
