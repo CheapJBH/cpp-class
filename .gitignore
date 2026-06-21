@@ -1,0 +1,18 @@
+# Executables
+*.exe
+*.out
+*.app
+
+# Data files
+*.dat
+
+# Temp directories
+-p/
+temp/
+tmp/
+
+# VS Code settings (user-specific)
+.vscode/
+
+# OpenCode style
+.opencode-cpp-style.mdc
