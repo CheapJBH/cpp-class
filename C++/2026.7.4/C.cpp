@@ -7,22 +7,38 @@ signed main()
     int n;
     string s;
     cin>>n>>s;
-    vector<int> a(n);
-    for(int i=0;i<n;i++) a[i]=i+1;
-    for(int k=0;k<n;k++)
+    deque<int> dq;
+    dq.push_back(1);
+    bool rev=false;
+    for(int i=1;i<n;i++)
     {
-        if(s[k]=='o')
+        if(s[i]=='o')
         {
-            for(int j=0;j<k+1-j;j++)
-            {
-                swap(a[j],a[k-j]);
-            }
+            if(rev) dq.push_front(i+1);
+            else dq.push_back(i+1);
+            rev=!rev;
+        }
+        else
+        {
+            if(rev) dq.push_front(i+1);
+            else dq.push_back(i+1);
         }
     }
-    for(int i=0;i<n;i++)
+    if(rev)
     {
-        if(i) cout<<" ";
-        cout<<a[i];
+        for(auto it=dq.rbegin();it!=dq.rend();it++)
+        {
+            if(it!=dq.rbegin()) cout<<" ";
+            cout<<*it;
+        }
+    }
+    else
+    {
+        for(auto it=dq.begin();it!=dq.end();it++)
+        {
+            if(it!=dq.begin()) cout<<" ";
+            cout<<*it;
+        }
     }
     cout<<endl;
     return 0;
