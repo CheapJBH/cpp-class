@@ -1,15 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define int long long
-const int maxn=1e5+5;
-int n;
-int p[maxn],f[maxn],a[maxn];
-signed main()
+/*====================*/
+#define endl '\n'
+/*====================*/
+using lnt = long long;
+/*====================*/
+const int N=1e5+5;
+lnt n;
+lnt p[N],f[N],a[N];
+/*====================*/
+/*====================*/
+void Solve(void)
 {
     cin>>n;
-    for(int i=1;i<=n;i++)
+    for (int i=1;i<=n;i++)
     {
         cin>>a[i];
     }
+}
+/*====================*/
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("IN.txt", "r+", stdin);
+#endif
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T = 1; //cin >> T;
+    while (T--)Solve();
     return 0;
 }

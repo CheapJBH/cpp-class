@@ -1,32 +1,48 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define int long long
-const int maxn=2e5+5;
+/*====================*/
+#define endl '\n'
+/*====================*/
+using lnt = long long;
+/*====================*/
+const int N=2e5+5;
 
-int n,q,fa[maxn];
+lnt n,q,fa[N];
 
-int find(int x)
+lnt find(lnt x)
 {
     return fa[x]==x?x:fa[x]=find(fa[x]);
 }
 
-void merge(int x,int y)
+void merge(lnt x,lnt y)
 {
     x=find(x);y=find(y);
-    if(x!=y) fa[x]=y;
+    if (x!=y) fa[x]=y;
 }
-
-signed main()
+/*====================*/
+/*====================*/
+void Solve(void)
 {
     cin>>n>>q;
-    for(int i=0;i<=n;i++) fa[i]=i;
-    while(q--)
+    for (int i=0;i<=n;i++) fa[i]=i;
+    while (q--)
     {
-        int l,r;
+        lnt l,r;
         cin>>l>>r;
         merge(l-1,r);
     }
-    if(find(0)==find(n)) cout<<"Yes"<<endl;
+    if (find(0)==find(n)) cout<<"Yes"<<endl;
     else cout<<"No"<<endl;
+}
+/*====================*/
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("IN.txt", "r+", stdin);
+#endif
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T = 1; //cin >> T;
+    while (T--)Solve();
     return 0;
 }

@@ -1,10 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define int long long
-const int maxn=105;
-
-signed main()
+/*====================*/
+#define endl '\n'
+/*====================*/
+using lnt = long long;
+/*====================*/
+const int N=105;
+/*====================*/
+/*====================*/
+void Solve(void)
 {
-    
+
+}
+/*====================*/
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("IN.txt", "r+", stdin);
+#endif
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T = 1; //cin >> T;
+    while (T--)Solve();
     return 0;
 }

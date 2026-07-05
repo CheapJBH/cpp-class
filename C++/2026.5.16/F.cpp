@@ -1,34 +1,39 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define int long long
-const int maxn=2005;
+/*====================*/
+#define endl '\n'
+/*====================*/
+using lnt = long long;
+/*====================*/
+const int N=2005;
 
-int n,m;
-vector<int> g[maxn];
-int vis[maxn];
-
-signed main()
+lnt n,m;
+vector<lnt> g[N];
+lnt vis[N];
+/*====================*/
+/*====================*/
+void Solve(void)
 {
     cin>>n>>m;
-    for(int i=1;i<=m;i++)
+    for (int i=1;i<=m;i++)
     {
-        int u,v;
+        lnt u,v;
         cin>>u>>v;
         g[u].push_back(v);
     }
-    int total=0;
-    for(int s=1;s<=n;s++)
+    lnt total=0;
+    for (int s=1;s<=n;s++)
     {
-        int cnt=0;
-        queue<int> q;
+        lnt cnt=0;
+        queue<lnt> q;
         q.push(s);
         vis[s]=s;
-        while(!q.empty())
+        while (!q.empty())
         {
-            int u=q.front();q.pop();
-            for(int v:g[u])
+            lnt u=q.front();q.pop();
+            for (int v:g[u])
             {
-                if(vis[v]!=s)
+                if (vis[v]!=s)
                 {
                     vis[v]=s;
                     q.push(v);
@@ -39,5 +44,16 @@ signed main()
         total+=cnt;
     }
     cout<<total-m<<endl;
+}
+/*====================*/
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("IN.txt", "r+", stdin);
+#endif
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T = 1; //cin >> T;
+    while (T--)Solve();
     return 0;
 }

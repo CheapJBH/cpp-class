@@ -1,17 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define int long long
-int n,q;
-const int maxn=1e9;
-
-signed main()
+/*====================*/
+#define endl '\n'
+/*====================*/
+using lnt = long long;
+/*====================*/
+lnt n,q;
+const int N=1e9;
+/*====================*/
+/*====================*/
+void Solve(void)
 {
-    int n,q;
-    set<pair<int,int>> s;
+    lnt n,q;
+    set<pair<lnt,lnt>> s;
     cin>>n>>q;
-    for(int i=0;i<q;i++)
+    for (int i=0;i<q;i++)
     {
-        int l,r,a;
+        lnt l,r,a;
         cin>>a>>l>>r;
         if (a==1)
         {
@@ -23,9 +28,20 @@ signed main()
         }
         if (a==3)
         {
-            if(s.count({l,r})&&s.count({r,l})) cout<<"Yes"<<endl;
+            if (s.count({l,r})&&s.count({r,l})) cout<<"Yes"<<endl;
             else cout<<"No"<<endl;
         }
     }
+}
+/*====================*/
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("IN.txt", "r+", stdin);
+#endif
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T = 1; //cin >> T;
+    while (T--)Solve();
     return 0;
 }

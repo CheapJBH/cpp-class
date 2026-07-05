@@ -1,32 +1,37 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define int long long
-typedef pair<int,int> pii;
-
-signed main()
+/*====================*/
+#define endl '\n'
+/*====================*/
+using lnt = long long;
+/*====================*/
+typedef pair<lnt,lnt> pii;
+/*====================*/
+/*====================*/
+void Solve(void)
 {
-    int q;
+    lnt q;
     cin>>q;
     deque<pii> dq;
-    while(q--)
+    while (q--)
     {
-        int op;
+        lnt op;
         cin>>op;
-        if(op==1)
+        if (op==1)
         {
-            int x,c;
+            lnt x,c;
             cin>>x>>c;
             dq.push_back({x,c});
         }
         else
         {
-            int c;
+            lnt c;
             cin>>c;
-            int sum=0;
-            while(c>0)
+            lnt sum=0;
+            while (c>0)
             {
                 auto &f=dq.front();
-                if(f.second>c)
+                if (f.second>c)
                 {
                     sum+=f.first*c;
                     f.second-=c;
@@ -42,5 +47,16 @@ signed main()
             cout<<sum<<endl;
         }
     }
+}
+/*====================*/
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("IN.txt", "r+", stdin);
+#endif
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T = 1; //cin >> T;
+    while (T--)Solve();
     return 0;
 }

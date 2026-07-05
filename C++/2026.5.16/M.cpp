@@ -1,33 +1,48 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define int long long
-
-signed main()
+/*====================*/
+#define endl '\n'
+/*====================*/
+using lnt = long long;
+/*====================*/
+/*====================*/
+void Solve(void)
 {
-    int n;
+    lnt n;
     cin>>n;
-    map<int,vector<int>> mp;
-    for(int i=1;i<=n;i++)
+    map<lnt,vector<lnt>> mp;
+    for (int i=1;i<=n;i++)
     {
-        int x;
+        lnt x;
         cin>>x;
         mp[x].push_back(i);
     }
-    int q;
+    lnt q;
     cin>>q;
-    while(q--)
+    while (q--)
     {
-        int l,r,x;
+        lnt l,r,x;
         cin>>l>>r>>x;
         auto it=mp.find(x);
-        if(it==mp.end())
+        if (it==mp.end())
         {
             cout<<0<<endl;
             continue;
         }
         auto &v=it->second;
-        int cnt=upper_bound(v.begin(),v.end(),r)-lower_bound(v.begin(),v.end(),l);
+        lnt cnt=upper_bound(v.begin(),v.end(),r)-lower_bound(v.begin(),v.end(),l);
         cout<<cnt<<endl;
     }
+}
+/*====================*/
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("IN.txt", "r+", stdin);
+#endif
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T = 1; //cin >> T;
+    while (T--)Solve();
     return 0;
 }
