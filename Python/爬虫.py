@@ -24,6 +24,7 @@ for num in range(1, 6):
         )
         res.raise_for_status()
         data = res.json()
+        
         comment_list = data.get('data', {}).get('list', [])
         if not comment_list:
             print(f"第{num}页没有评论或接口返回异常。")
