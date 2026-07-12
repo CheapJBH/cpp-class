@@ -44,7 +44,7 @@ void Solve(void)
             if (dp[L] == 0) continue;
             for (int c = 0; c <= f && L + c <= n; c++)
             {
-                lnt val = C(f, c) * invf[c] % MOD;
+                lnt val = invf[c];
                 ndp[L + c] = (ndp[L + c] + dp[L] * val % MOD) % MOD;
             }
         }
