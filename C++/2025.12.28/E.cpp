@@ -2,10 +2,13 @@
 using namespace std;
 /*====================*/
 const int N=1e6+5;
-
+/*====================*/
+using lnt = long long;
+/*====================*/
 lnt dis[N];
 /*====================*/
-/*====================*/`nvoid Solve(void)
+/*====================*/
+void Solve(void)
 {
     lnt n;
     cin>>n;
