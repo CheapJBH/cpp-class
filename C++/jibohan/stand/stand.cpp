@@ -11,27 +11,39 @@ void Solve(void)
     cin >> n >> k;
     string s;
     cin >> s;
-    vector<pair<int, int>> blocks;
-    int cnt = 1;
-    for (int i = 1; i < n; i++)
+    vector<pair<int, int>> groups;
+    for (int i = 0; i < n; )
     {
-        if (s[i] == s[i - 1]) cnt++;
-        else { blocks.push_back({s[i - 1] - '0', cnt}); cnt = 1; }
-    }
-    blocks.push_back({s[n - 1] - '0', cnt});
-    int m = blocks.size(), ans = 0;
-    int l = 0, zeros = 0, len = 0;
-    for (int r = 0; r < m; r++)
-    {
-        len += blocks[r].second;
-        if (blocks[r].first == 0) zeros++;
-        while (zeros > k)
+        if (s[i] == '0')
         {
-            len -= blocks[l].second;
-            if (blocks[l].first == 0) zeros--;
-            l++;
+            int j = i;
+            while (j < n && s[j] == '0') j++;
+            groups.push_back({i, j - 1});
+            i = j;
         }
-        ans = max(ans, len);
+        else i++;
+    }
+    int m = groups.size();
+    if (m == 0 || k >= m)
+    {
+        cout << n << endl;
+        return;
+    }
+    int ans = 0;
+    int mx = groups[0].first;
+    for (int i = 1; i < m; i++)
+        mx = max(mx, groups[i].first - groups[i - 1].second - 1);
+    mx = max(mx, n - groups[m - 1].second - 1);
+    ans = mx;
+    if (k > 0)
+    {
+        for (int i = 0; i + k - 1 < m; i++)
+        {
+            int j = i + k - 1;
+            int L = (i > 0) ? groups[i - 1].second + 1 : 0;
+            int R = (j < m - 1) ? groups[j + 1].first - 1 : n - 1;
+            ans = max(ans, R - L + 1);
+        }
     }
     cout << ans << endl;
 }

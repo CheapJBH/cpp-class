@@ -27,8 +27,8 @@ void Solve(void)
 int main()
 {
 #ifndef ONLINE_JUDGE
-    freopen("poster.in", "r", stdin);
-    freopen("poster.out", "w", stdout);
+    // freopen("poster.in", "r", stdin);
+    // freopen("poster.out", "w", stdout);
 #endif
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
